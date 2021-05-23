@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "0.0.0",
   "description": "> TODO: description",
-  "author": "hahafury <74094674+hahafury@users.noreply.github.com>",
+  "author": "julietvt <freshitpt@gmail.com>",
   "homepage": "",
   "license": "ISC",
   "main": "lib/backend.js",
@@ -14,12 +14,14 @@
     "lib"
   ],
   "scripts": {
-    "start": "node ./server.js",
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "dev": "nodemon ./server.js"
+    "start": "node -r  ./server.js",
+    "dev": "nodemon -r ./server.js"
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "multer": "^1.4.2",
     "pg": "^8.6.0",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.6.2",

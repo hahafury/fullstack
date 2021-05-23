@@ -1,46 +1,36 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Superhero extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  };
-  Superhero.init({
-    nickname:{
-      type: DataTypes.STRING,
-      require: true,
-      unique: true,
+    static associate(models) {}
+  }
+  Superhero.init(
+    {
+      nickname: {
+        type: DataTypes.STRING,
+        require: true,
+        unique: true,
+      },
+      real_name: {
+        type: DataTypes.STRING,
+        require: true,
+      },
+      origin_description: DataTypes.STRING,
+      superpowers: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        defaultValue: [],
+      },
+      catch_phrase: DataTypes.STRING,
+      images: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        defaultValue: [],
+      },
     },
-    realName:{
-      type: DataTypes.STRING,
-      require: true,
-    },
-    originDescription:{
-      type: DataTypes.STRING,
-    },
-    superpowers:{
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      defaultValue: [],
-    } ,
-    catchPhrase: DataTypes.STRING,
-    images:{
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      defaultValue: [],
-    },
-  }, 
     {
       sequelize,
       modelName: 'Superhero',
       underscored: true,
-      tableName: 'superheroes'
+      tableName: 'Superheros',
     }
   );
   return Superhero;
